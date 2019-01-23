@@ -7,7 +7,7 @@ TIMEOUT= Dict{Any,Any}("ACCEPT"=>0.1,
                        "pending_Calc_Threshold"=>30,
                        "ONLINE_REPORT_TIMER"=>1000);
 
-NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.1",
+NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.70",
                       "msgPort"=>4001,
                       "dataPort"=>4002);
 
