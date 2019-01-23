@@ -1,6 +1,5 @@
 # getipaddr()
-NETWORK=Dict{Any,Any}(#"server_IP"=>"129.106.134.222", # server IP address
-                      "server_IP"=>"192.168.1.70", # server IP address
+NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.70", # server IP address
                       "msgPort"=>4001,            # msg port
                       "dataPort"=>4002)           # data port
 
