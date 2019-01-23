@@ -72,6 +72,7 @@ end
   result["TU"] = T2obs;
   result["z_old"] = zeros(N,K)-1;
   result["z_new"] = zeros(N,K);
+  result["zbar_new"] = zeros(N,1);
   result["gamma_old"] = zeros(N,K);
   result["gamma_new"] = zeros(N,K);
   result["betaX"] = zeros(N,K);
@@ -91,6 +92,8 @@ end
   gamma_new = gamma_old;
   z_old = result["z_new"][:,:];
   z_new = z_old-1;
+#  zbar_new = ones(N,1);
+  zbar_new = result["zbar_new"];
   rho = 1.0;
   # Cox model under ADMM
   Site_Result = result["betaX"][:,:];
@@ -101,10 +104,10 @@ end
   gamma_bar = sum(gamma_old,2)/K;
   # Solve zbar with Newton-Raphson method
   z_iter = 0;
-  zbar_old = zeros(N,1);
-  zbar_new = zbar_old+1;
+  zbar_old = zeros(N,1)-1;
+
   epsilon = 1e-5;
-  while (sum(abs(zbar_new-zbar_old))>epsilon && z_iter<3000)
+  while (sum(abs(zbar_new-zbar_old))>epsilon && z_iter<1500)
     z_iter = z_iter+1;
     zbar_old = zbar_new;
     zexp = exp(K*zbar_old);
@@ -134,6 +137,7 @@ end
   gamma_new = repmat(gamma_bar+rho*(AggrResult-zbar_new),1,K);
   result["z_new"] = z_new;
   result["gamma_new"] = gamma_new;
+  result["zbar_new"] = zbar_new;
 
   return result;
 end

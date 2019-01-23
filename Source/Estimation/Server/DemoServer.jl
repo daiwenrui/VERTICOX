@@ -1,19 +1,25 @@
 # getipaddr()
-NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.1", # server IP address
+NETWORK=Dict{Any,Any}(#"server_IP"=>"129.106.134.222", # server IP address
+                      "server_IP"=>"192.168.1.70", # server IP address
                       "msgPort"=>4001,            # msg port
                       "dataPort"=>4002)           # data port
 
-users = cell(2,7);
-users[1,:] = ["u001"  "UCSD001"   0  true   now()  true  "123456"]; #user 1
+num_users = 2;
+users = cell(num_users,7);
+users[1,:] = ["u001"  "User001"   0  true   now()  true  "123456"]; #user 1
 users[1,3] = cell(0);
-users[2,:] = ["u002"  "UCSD002"   0  true   now()  true  "123456"]; #user 2
+users[2,:] = ["u002"  "User002"   0  true   now()  true  "123456"]; #user 2
 users[2,3] = cell(0);
+#users[3,:] = ["u003"  "User003"   0  true   now()  true  "123456"]; #user 3
+#users[3,3] = cell(0);
 
-jobs= cell(2,4);
+jobs= cell(num_users,4);
 jobs[1,:] = ["t001"  "u001"  false  0];
 jobs[2,:] = ["t001"  "u002"  false  0];
+#jobs[3,:] = ["t001"  "u003"  false  0];
 jobs[1,4] = cell(0);
 jobs[2,4] = cell(0);
+#jobs[3,4] = cell(0);
 
 currentTask = cell(1,5);
 currentTask = ["t001"  "VERTICOX" 0  9  0]; # current task
@@ -55,7 +61,7 @@ MSG_CODEBOOK=Dict{Any,Any}("break"=>0,
                            "receiveClient2ServerData"=>16);
 ParaInServer=Dict{Any,Any}("rho"=>1.0,
                            "lambda"=>0.0,
-                           "maxit"=>1500,  # max number of iteration
+                           "maxit"=>5000,  # max number of iteration
                            "tol"=>1e-7);   # error tolerance
 
 #add processors
