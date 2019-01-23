@@ -16,8 +16,8 @@ USER=Dict{Any,Any}("username"=>"User002",
                    "taskID"=>"t001");             # current task
 
 # get local data
-X=readcsv("E:/Code/VERTICOX/Source/Estimation/Client2/seer2.txt");
-beta1b=readcsv("E:/Code/VERTICOX/Source/Estimation/Client2/para2.txt");
+X=readcsv("/VERTICOX/Source/Estimation/Client2/uaru2.txt"); #covariate
+beta1b=readcsv("/VERTICOX/Source/Estimation/Client2/para2.txt"); #model parameter
 M = size(X,2);
 LOCALDATA=Dict{Any,Any}("X"=>X[:,1:M-2],
                         "T"=>X[:,M-1],
