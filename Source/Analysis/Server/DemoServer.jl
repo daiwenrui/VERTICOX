@@ -1,4 +1,4 @@
-NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.1",
+NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.70",
                       "msgPort"=>4001,
                       "dataPort"=>4002)
 
