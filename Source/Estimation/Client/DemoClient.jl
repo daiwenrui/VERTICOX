@@ -7,16 +7,17 @@ TIMEOUT= Dict{Any,Any}("ACCEPT"=>0.1,
                        "pending_Calc_Threshold"=>30,
                        "ONLINE_REPORT_TIMER"=>1000);
 
-NETWORK=Dict{Any,Any}("server_IP"=>"192.168.1.1", # server IP address
+NETWORK=Dict{Any,Any}(#"server_IP"=>"129.106.134.222", # server IP address
+                      "server_IP"=>"192.168.1.70", # server IP address
                       "msgPort"=>4001,            # msg port
                       "dataPort"=>4002);          # data port
 
-USER=Dict{Any,Any}("username"=>"UCSD001",
+USER=Dict{Any,Any}("username"=>"User001",
                    "password"=> "123456",
                    "taskID"=>"t001");             # current task
 # get local data
-X=readcsv("C:/VERTICOX/Source/Estimation/Client/uaru1.txt");
-beta1b=readcsv("C:/VERTICOX/Source/Estimation/Client/para1.txt");
+X=readcsv("E:/Code/VERTICOX/Source/Estimation/Client/seer1.txt");
+beta1b=readcsv("E:/Code/VERTICOX/Source/Estimation/Client/para1.txt");
 M = size(X,2);
 LOCALDATA=Dict{Any,Any}("X"=>X[:,1:M-2],
                         "T"=>X[:,M-1],
